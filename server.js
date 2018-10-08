@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const Example = require("./exampleModel.js");
+const apiRoutes = require("./routes/apiRoutes");
 
 //remember that this is your connection string.
 //we will change this later
@@ -20,6 +21,10 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+
+app.use("/api", apiRoutes);
+
 
 // Define API routes here
 app.get("/michigan", (req, res) => {
