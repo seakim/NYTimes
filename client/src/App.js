@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import NYT from "nyt";
-import API from "./utils/API"
+// import API from "./utils/API"
 import "./App.scss";
 import Title from './components/Title/Title';
 import Search from './components/Search/Search';
@@ -8,19 +8,22 @@ import SearchResult from './components/SearchResult/SearchResult';
 import SavedResult from './components/SavedResult/SavedResult';
 import Footer from './components/Footer/Footer';
 
-class App extends Component {
+import sampleData from './components/sample.json';
 
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      term: ""
+      term: "",
+      articles: []
     }
-    this.ArticleSearch("test");
   }
 
-  ArticleSearch(term) {
-    // API.getArticles()
-    API.getRandomDog().then( res => console.log(res));
+  componentWillMount() {
+    const sample = sampleData.response.docs;
+    this.setState({
+      articles: sample
+    })
   }
 
   render() {
@@ -28,9 +31,9 @@ class App extends Component {
       <div className="container">
         <Title />
         <div className="row">
-          {/* <Search onSearchTermChange = {ArticleSearch} /> */}
           <Search />
-          <SearchResult />
+          {/* <Search articleSearch = {this.getArticles}/> */}
+          <SearchResult articles={this.state.articles}/>
         </div>
         <br />
         <div className="row">
@@ -40,7 +43,6 @@ class App extends Component {
           <Footer />
         </div>
       </div>
-
     );
   }
 }

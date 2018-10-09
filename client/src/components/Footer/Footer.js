@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="footer col-sm-12">
       <hr />
       <h5 className="text-center">
-        <small>Made with lots and lots of <i className="fa fa-heart"></i></small>
+        <small>Source: The New York Times <i className="fa fa-newspaper-o"></i></small>
       </h5>
     </div>
   )

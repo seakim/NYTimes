@@ -29,15 +29,6 @@ class Search extends Component {
   onEndDateChage(end_date) {
 		this.setState({ end_date });
   }
-  // onClear() {
-  //   this.setState({
-  //     q: "",
-  //     sort: "newest",
-  //     page: 1,
-  //     begin_date: "",
-  //     end_date: ""
-  //   });
-  // }
   render() {
     return (
       <div className="search col-sm-12 col-md-6">
@@ -47,7 +38,7 @@ class Search extends Component {
               <i className="fa fa-list-alt"></i> Search Parameters</strong>
           </div>
           <div className="card-body">
-            <form role="form">
+            {/* <form role="form"> */}
               <div className="form-group">
                 <label htmlFor="search">Search Term:</label>
                 <input type="text" className="form-control" id="search-term" 
@@ -97,7 +88,7 @@ class Search extends Component {
                   onChange = {event => this.onEndDateChage(event.target.value)}
                 />
               </div>
-            </form>
+            {/* </form> */}
           </div>
         </div>
         q = {this.state.q} |
