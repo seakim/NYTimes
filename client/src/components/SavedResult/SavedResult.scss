@@ -1,0 +1,22 @@
+.saved-result {
+    .card-body {
+      height: 420px;
+      position:relative;
+      padding: 0;
+      #scroll {
+        max-height:100%;
+        overflow:auto;
+        ul {
+          padding: 0;
+          margin: 0;
+          #fav {
+            color: #20315A;
+            position: absolute;
+            top:1%;
+            right:1%;
+          }
+        }
+      }
+      
+    }
+  }

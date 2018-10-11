@@ -3,14 +3,19 @@ import './SearchResult.scss';
 import SearchResultItem from "./SearchResultItem"
 const SearchResult = ({articles}) => {
 
-  console.log(articles)
+  // console.log(articles)
   const ArticleList = articles.map( article => {
+    let byline="";
+    if (article.byline) {
+      byline = article.byline.original;
+    };
     return (
       <SearchResultItem 
         key = {article._id}
         id = {article._id}
         headline = {article.headline.main}
-        byline = {article.byline.original}
+        byline = {byline}
+        // byline = {article.byline.original}
         snippet = {article.snippet}
         url = {article.web_url}
         pubDate = {article.pub_date}

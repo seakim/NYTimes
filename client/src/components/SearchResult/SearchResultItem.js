@@ -1,7 +1,7 @@
 import React from "react";
 
 const SearchResultItem = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
 		<li className="list-group-item">
       <div className="media-body">

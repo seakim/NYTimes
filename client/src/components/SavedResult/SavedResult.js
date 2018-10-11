@@ -3,7 +3,7 @@ import './SavedResult.scss';
 
 const SavedResult = () => {
   return (
-    <div className="saved-result col-sm-12">
+    <div className="saved-result col-sm-6">
       <div className="card">
         <div className="card-header">
           <strong>

@@ -1,66 +1,66 @@
 import React, { Component } from "react";
 import './Search.scss';
+import moment from 'moment';
 
 class Search extends Component {
   constructor (props) {
     super(props);
+    const topic = ['business','sports', 'arts', 'science', 'economic', 'politic'];
     this.state = {
-      q: "",
+      q: topic[Math.floor(Math.random()*topic.length)],
       sort: "newest",
-      page: 0,
-      begin_date: "",
-      end_date: ""
+      page: "0",
+      begin_date: moment().format('YYYYMM')+'01',
+      end_date: moment().format('YYYYMMDD')
     }
   }
 
-	onQChage(q) {
-		this.setState({ q });
-		// this.props.onSearchTermChange(q);
-  }
-  onSortChage(sort) {
-		this.setState({ sort });
-  }
-  onPageChage(page) {
-		this.setState({ page });
-  }
-  onBeginDateChage(begin_date) {
-		this.setState({ begin_date });
-  }
-  onEndDateChage(end_date) {
-		this.setState({ end_date });
+  onEnter(event) {
+    if (event.charCode === 13) {
+      this.props.onSearchTermChange(this.state);
+    }
   }
   render() {
     return (
-      <div className="search col-sm-12 col-md-6">
+      <div className="search col-sm-12 col-md-12">
         <div className="card">
           <div className="card-header">
             <strong>
               <i className="fa fa-list-alt"></i> Search Parameters</strong>
           </div>
-          <div className="card-body">
-            {/* <form role="form"> */}
-              <div className="form-group">
-                <label htmlFor="search">Search Term:</label>
+          <div className="card-body"> 
+            <div className="row">
+
+              {/* SEARCH-TERM */}
+              <div className="form-group col-md-3">
+                <small htmlFor="search">Search Term:</small>
                 <input type="text" className="form-control" id="search-term" 
                   value = {this.state.q}
-                  onChange = {event => this.onQChage(event.target.value)}
+                  onChange = {event => this.setState({q: event.target.value})}
+                  onKeyPress = {(event) => this.onEnter(event)}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="sort">Sort Result:</label>
+
+              {/* SORT */}
+              <div className="form-group col-md-2">
+                <small htmlFor="sort">Sort Result:</small>
                 <select id="sort" className="custom-select" aria-labelledby="dropdownMenuButton"
                   value = {this.state.sort}
-                  onChange = {event => this.onSortChage(event.target.value)}
+                  onChange = { event => this.setState({sort: event.target.value})}
+                  onKeyPress = {(event) => this.onEnter(event)}
                 >
                   <option value="newest">Newest</option>
                   <option value="oldest" >Oldest</option>
                 </select>
               </div>
-              <div className="form-group">
-                <label htmlFor="page">Result Page:</label>
+
+              {/* PAGE */}
+              <div className="form-group col-md-2">
+                <small htmlFor="page">Result Page:</small>
                 <select id="article-count" className="custom-select" aria-labelledby="dropdownMenuButton"
                   value = {this.state.page}
-                  onChange = {event => this.onPageChage(event.target.value)}
+                  onChange = {event => this.setState({page: event.target.value})}
+                  onKeyPress = {(event) => this.onEnter(event)}
                 >
                   <option value="0">1</option>
                   <option value="1" >2</option>
@@ -74,28 +74,41 @@ class Search extends Component {
                   <option value="9" >10</option>
                 </select>
               </div>
-              <div className="form-group">
-                <label htmlFor="start-year">Start Date (Optional):</label>
+
+              {/* START */}
+              <div className="form-group col-md-2">
+                <small htmlFor="start-year">Start Date (Optional):</small>
                 <input type="text" className="form-control" id="start-year" placeholder="20181010"
                   value = {this.state.begin_date}
-                  onChange = {event => this.onBeginDateChage(event.target.value)}
+                  onChange = {event => this.setState({begin_date: event.target.value})}
+                  onKeyPress = {(event) => this.onEnter(event)}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="end-year">End Date (Optional):</label>
+
+              {/* END */}
+              <div className="form-group col-md-2">
+                <small htmlFor="end-year">End Date (Optional):</small>
                 <input type="text" className="form-control" id="end-year" placeholder="20181231"
                   value = {this.state.end_date}
-                  onChange = {event => this.onEndDateChage(event.target.value)}
+                  onChange = {event => this.setState({end_date: event.target.value})}
+                  onKeyPress = {(event) => this.onEnter(event)}
                 />
               </div>
-            {/* </form> */}
-          </div>
+
+              {/* SUBMIT */}
+              <button type="submit" className="btn btn-default btn-sm col-md-1" id="run-search"
+                onClick = {() => this.props.onSearchTermChange(this.state)}
+              >
+                <i className="fa fa-search"></i></button>
+              </div>
+            </div>
+
+            <div className="row"> 
+
+
+
+            </div>
         </div>
-        q = {this.state.q} |
-        sort = {this.state.sort} |
-        page = {this.state.page} |
-        begin = {this.state.begin_date} |
-        end = {this.state.end_date}
       </div>
     )
   }
