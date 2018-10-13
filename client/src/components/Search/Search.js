@@ -26,7 +26,7 @@ class Search extends Component {
         <div className="card">
           <div className="card-header">
             <strong>
-              <i className="fa fa-list-alt"></i> Search Parameters</strong>
+              <i className="fa fa-list-alt"></i> Search</strong>
           </div>
           <div className="card-body"> 
             <div className="row">
@@ -77,7 +77,7 @@ class Search extends Component {
 
               {/* START */}
               <div className="form-group col-md-2">
-                <small className="text-muted" htmlFor="start-year">Start Date (Optional):</small>
+                <small className="text-muted" htmlFor="start-year">Start Date:</small>
                 <input type="text" className="form-control" id="start-year" placeholder="20181010"
                   value = {this.state.begin_date}
                   onChange = {event => this.setState({begin_date: event.target.value})}
@@ -87,7 +87,7 @@ class Search extends Component {
 
               {/* END */}
               <div className="form-group col-md-2">
-                <small className="text-muted" htmlFor="end-year">End Date (Optional):</small>
+                <small className="text-muted" htmlFor="end-year">End Date:</small>
                 <input type="text" className="form-control" id="end-year" placeholder="20181231"
                   value = {this.state.end_date}
                   onChange = {event => this.setState({end_date: event.target.value})}

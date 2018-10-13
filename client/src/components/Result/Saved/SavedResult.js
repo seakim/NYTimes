@@ -23,7 +23,7 @@ const SavedResult = props => {
       <div className="card">
         <div className="card-header">
           <strong>
-            <i className="fa fa-table" /> Saved Articles
+            <i className="fa fa-save" /> Saved Articles
           </strong>
         </div>
         <div className="card-body" id="article-section">
