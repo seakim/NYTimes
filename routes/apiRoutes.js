@@ -5,7 +5,10 @@ module.exports = function(app) {
   app.post("/api/article", (req, res) => {
     Article.create(req.body)
       .then( result => res.json(result) )
-      .catch( err => console.log(err) );
+      .catch( err => {
+        console.log(err);
+        res.end();
+      });
   });
 
   app.get("/api/article", (req, res) => {

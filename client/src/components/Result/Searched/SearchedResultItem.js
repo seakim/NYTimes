@@ -1,11 +1,7 @@
 import React from "react";
 
 const SearchResultItem = props => {
-  const fav = (
-    <a id="fav" onClick={() => props.onFavoriteClick(props)}>
-      <i className="fa fa-plus" />
-    </a>
-  );
+  const fav = <i className="fav fa fa-plus" onClick={() => props.onFavoriteClick(props)} />;
 
   return (
     <li className="list-group-item">

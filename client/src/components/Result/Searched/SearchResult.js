@@ -14,7 +14,7 @@ const SearchResult = props => {
         key={article._id}
         id={article._id}
         headline={article.headline.main}
-        byline={article.byline}
+        byline={byline}
         snippet={article.snippet}
         url={article.web_url}
         pubDate={article.pub_date}

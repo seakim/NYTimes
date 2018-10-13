@@ -1,11 +1,11 @@
 import axios from "axios";
-import nytkey from "../config"
+import keys from "../config"
 export default {
 
   getArticles: (q, begin_date, end_date, sort, page) => {
     return axios.get('https://api.nytimes.com/svc/search/v2/articlesearch.json', {
       params: {
-        api_key: nytkey, 
+        api_key: keys.nyt, 
         q: q,
         begin_date: begin_date,
         end_date: end_date,
@@ -20,7 +20,6 @@ export default {
   },
   removeArticleFromDB: (articleData) => {
     return axios.delete(`/api/article/${articleData.id}`)
-      .then(console.log(articleData.id));
   },
   getArticlesFromDB: (data) => {
     return axios.get("/api/article/", data);

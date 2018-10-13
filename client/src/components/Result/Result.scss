@@ -10,11 +10,14 @@
       ul {
         padding: 0;
         margin: 0;
-        #fav {
+        .fav {
           color: #20315A;
           position: absolute;
-          top:1%;
-          right:1%;
+          top:5%;
+          right:2%;
+        }
+        .fav:hover {
+          cursor: pointer;
         }
       }
     }

@@ -1,11 +1,7 @@
 import React from "react";
 
 const SavedResultItem = props => {
-  const fav = (
-    <a id="fav" onClick={() => props.onFavoriteClick(props)}>
-      <i className="fa fa-minus" />
-    </a>
-  );
+  const fav = <i className="fav fa fa-minus" onClick={() => props.onFavoriteClick(props)}/>;
 
   return (
     <li className="list-group-item">
