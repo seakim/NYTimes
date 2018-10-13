@@ -20,7 +20,7 @@
 - Can remove articles from the Favorite Articles
 
 
-## Features
+## Setup
 
 Start by installing front and backend dependencies. While in this directory, run the following command:
 
