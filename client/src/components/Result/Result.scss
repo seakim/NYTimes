@@ -1,4 +1,5 @@
-.search-result {
+
+@mixin result {
   .card-body {
     height: 420px;
     position:relative;
@@ -17,6 +18,7 @@
         }
       }
     }
-    
   }
 }
+.search-result {@include result};
+.saved-result {@include result};

@@ -3,50 +3,35 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
-const Example = require("./exampleModel.js");
-const apiRoutes = require("./routes/apiRoutes");
 
-//remember that this is your connection string.
-//we will change this later
 if (typeof process.env.MONGODB_URI !== 'undefined' && process.env.MONGODB_URI.length > 0) {
   mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
-}
-else {
-  // mongoose.connect("mongodb://localhost/testmern", { useNewUrlParser: true });
+} else {
   mongoose.connect("mongodb://localhost/nytimes", { useNewUrlParser: true });
 }
-// Define middleware here
+
+/** middleware */
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use("/api", apiRoutes);
+// app.post("/api/article", (req, res) => {
+//   console.log(req.body);
+//   res.json({
+//       test: "test"
+//   });
+// });
 
+require("./routes/apiRoutes.js")(app);
+// app.use("/api", apiRoutes);
 
-
-app.get("/testdb", (req, res) => {
-  var data = {
-    array: ["item1", "item2", "item3"],
-    boolean: false,
-    string: "\"Don't worry if it doesn't work right. If everything did, you'd be out of a job\" - Mosher's Law of Software Engineering",
-    number: 42
-  };
-  // Save a new Example using the data object
-  Example.create(data)
-    .then(function (dbExample) {
-      // If saved successfully, print the new Example document to the console
-      console.log(dbExample);
-      res.json(dbExample);
-    })
-    .catch(function (err) {
-      // If an error occurs, log the error message
-      console.log(err.message);
-      res.json({ error: "you made a boo boo" });
-    });
-});
+// app.get("/api/test", (req, res) => {
+//   res.json({test:"TEST"});
+// })
 
 // Send every other request to the React app
 // Define any API routes before this runs

@@ -33,7 +33,7 @@ class Search extends Component {
 
               {/* SEARCH-TERM */}
               <div className="form-group col-md-3">
-                <small htmlFor="search">Search Term:</small>
+                <small className="text-muted" htmlFor="search">Search Term:</small>
                 <input type="text" className="form-control" id="search-term" 
                   value = {this.state.q}
                   onChange = {event => this.setState({q: event.target.value})}
@@ -43,7 +43,7 @@ class Search extends Component {
 
               {/* SORT */}
               <div className="form-group col-md-2">
-                <small htmlFor="sort">Sort Result:</small>
+                <small className="text-muted" htmlFor="sort">Sort Result:</small>
                 <select id="sort" className="custom-select" aria-labelledby="dropdownMenuButton"
                   value = {this.state.sort}
                   onChange = { event => this.setState({sort: event.target.value})}
@@ -56,7 +56,7 @@ class Search extends Component {
 
               {/* PAGE */}
               <div className="form-group col-md-2">
-                <small htmlFor="page">Result Page:</small>
+                <small className="text-muted" htmlFor="page">Result Page:</small>
                 <select id="article-count" className="custom-select" aria-labelledby="dropdownMenuButton"
                   value = {this.state.page}
                   onChange = {event => this.setState({page: event.target.value})}
@@ -77,7 +77,7 @@ class Search extends Component {
 
               {/* START */}
               <div className="form-group col-md-2">
-                <small htmlFor="start-year">Start Date (Optional):</small>
+                <small className="text-muted" htmlFor="start-year">Start Date (Optional):</small>
                 <input type="text" className="form-control" id="start-year" placeholder="20181010"
                   value = {this.state.begin_date}
                   onChange = {event => this.setState({begin_date: event.target.value})}
@@ -87,7 +87,7 @@ class Search extends Component {
 
               {/* END */}
               <div className="form-group col-md-2">
-                <small htmlFor="end-year">End Date (Optional):</small>
+                <small className="text-muted" htmlFor="end-year">End Date (Optional):</small>
                 <input type="text" className="form-control" id="end-year" placeholder="20181231"
                   value = {this.state.end_date}
                   onChange = {event => this.setState({end_date: event.target.value})}
